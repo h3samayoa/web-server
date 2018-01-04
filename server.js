@@ -9,6 +9,10 @@ app.get('/about', middleware.requireAuthentication, function (req, res) {
 	res.send('About me!');
 });
 
+app.get('/blog', middleware.requireAuthentication, function (req, res) {
+	res.send(express.static(__dirname + '/public'))
+});
+
 app.use(express.static(__dirname + '/public'));
 
 app.listen(PORT, function () {
